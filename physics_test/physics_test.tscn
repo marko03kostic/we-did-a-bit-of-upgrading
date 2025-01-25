@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dldpe6to636t3"]
+[gd_scene load_steps=9 format=3 uid="uid://dldpe6to636t3"]
 
 [ext_resource type="PackedScene" uid="uid://cx24hyfkqpa2v" path="res://physics_test/block/block.tscn" id="1_r5mcm"]
+[ext_resource type="Script" path="res://physics_test/physics_test.gd" id="1_vvhsr"]
 [ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_qv2a0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uxgkd"]
+noise_type = 3
+seed = 8
+frequency = 1.0
+fractal_lacunarity = 3.25
+fractal_gain = 0.515
+
+[sub_resource type="Curve" id="Curve_mkqdt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.516484, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_18y8s"]
+curve = SubResource("Curve_mkqdt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awnv6"]
 size = Vector3(5, 1, 5)
@@ -9,14 +24,21 @@ size = Vector3(5, 1, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_aqukx"]
 size = Vector3(5, 1, 5)
 
-[node name="physics_test" type="Node3D"]
+[node name="physics_test" type="Node3D" groups=["Level"]]
+script = ExtResource("1_vvhsr")
+noise = SubResource("FastNoiseLite_uxgkd")
+kurv = SubResource("CurveTexture_18y8s")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+disable_mode = 1
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_awnv6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("BoxMesh_aqukx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -34,3 +56,8 @@ transform = Transform3D(0.645458, 0, -0.763796, -0.414763, 0.839715, -0.350502, 
 [node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_qv2a0")]
 x_sensitivity = 0.005
 center_node = NodePath("..")
+height_limit = 0
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

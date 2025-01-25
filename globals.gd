@@ -11,8 +11,8 @@ func _ready() -> void:
 	add_child(t)
 	t.one_shot = false
 	t.autostart = false
-	t.wait_time = randi_range(5, 15)
-	t.timeout.connect(test)
+	t.wait_time = randi_range(5, 6)
+	t.timeout.connect(apply_shake)
 
 	enable_rng()
 
@@ -21,9 +21,8 @@ func enable_rng():
 func disable_rng():
 	t.paused = true
 
-func test ():
-	print_debug("test")
-	
+func apply_shake():
+	get_tree().get_nodes_in_group("Level").all(func (lvl): lvl.apply_shake())
 func reduce_money(amount: int) -> bool:
 	if(money < amount):
 		no_more_money.emit()
