@@ -10,6 +10,8 @@ func _process(delta: float) -> void:
 
 func _on_choice_1_pressed() -> void:
 	Globals.money = 150_000
+	Globals.start_a_level()
+	get_tree().change_scene_to_file("res://camera/physics_test.tscn")
 
 func _on_choice_2_pressed() -> void:
 	Globals.money = 500_000

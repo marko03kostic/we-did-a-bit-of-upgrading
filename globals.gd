@@ -6,17 +6,23 @@ var number_of_blocks: int = 0
 @onready var t = Timer.new() 
 
 signal no_more_money;
-
+var ICON = preload("res://icon.svg")
 func _ready() -> void:
+	MainGui.visible = false;
+	
 	add_child(t)
 	t.one_shot = false
 	t.autostart = false
 	t.wait_time = randi_range(5, 6)
 	t.timeout.connect(apply_shake)
-
-	enable_rng()
-
+	
+func start_a_level():
+	#var main_gui = get_tree().get_first_node_in_group("MainGUI") as MainGUI
+	MainGui.visible = true;
+	print_debug(ICON)
+	MainGui.set_blocks(1,  ICON, 2, ICON, 3, ICON)
 func enable_rng():
+	
 	t.start(t.wait_time)
 	
 func disable_rng():

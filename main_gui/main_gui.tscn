@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq3us4l0f3itr"]
+
+[ext_resource type="Script" path="res://main_gui/main_gui.gd" id="1_fegp4"]
+[ext_resource type="PackedScene" uid="uid://cy5x6psuecjqc" path="res://main_gui/block_button.tscn" id="2_fmvfu"]
+
+[node name="MainGUI" type="Control" groups=["MainGUI"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fegp4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlockButtonsContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="BlockButton" parent="MarginContainer/BlockButtonsContainer" instance=ExtResource("2_fmvfu")]
+layout_mode = 2
+
+[node name="BlockButton2" parent="MarginContainer/BlockButtonsContainer" instance=ExtResource("2_fmvfu")]
+layout_mode = 2
+
+[node name="BlockButton3" parent="MarginContainer/BlockButtonsContainer" instance=ExtResource("2_fmvfu")]
+layout_mode = 2
+
+[node name="MoneyLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 258.0
+offset_bottom = 76.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Money: "

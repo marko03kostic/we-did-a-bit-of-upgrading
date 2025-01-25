@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy5x6psuecjqc"]
+
+[ext_resource type="Script" path="res://main_gui/block_button.gd" id="1_vqd67"]
+[ext_resource type="Texture2D" uid="uid://d4fpy72dcbiac" path="res://icon.svg" id="2_rvw3w"]
+
+[node name="BlockButton" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+script = ExtResource("1_vqd67")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Price: "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rvw3w")
+expand_mode = 3
+stretch_mode = 5

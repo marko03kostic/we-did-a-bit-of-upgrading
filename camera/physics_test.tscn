@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dldpe6to636t3"]
 
-[ext_resource type="PackedScene" uid="uid://cx24hyfkqpa2v" path="res://physics_test/block/block.tscn" id="1_r5mcm"]
-[ext_resource type="Script" path="res://physics_test/physics_test.gd" id="1_vvhsr"]
-[ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_qv2a0"]
+[ext_resource type="Script" path="res://physics_test/physics_test.gd" id="1_5hx14"]
+[ext_resource type="PackedScene" uid="uid://cx24hyfkqpa2v" path="res://physics_test/block/block.tscn" id="2_uid63"]
+[ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="3_y6vmr"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_uxgkd"]
 noise_type = 3
@@ -25,7 +25,7 @@ size = Vector3(5, 1, 5)
 size = Vector3(5, 1, 5)
 
 [node name="physics_test" type="Node3D" groups=["Level"]]
-script = ExtResource("1_vvhsr")
+script = ExtResource("1_5hx14")
 noise = SubResource("FastNoiseLite_uxgkd")
 kurv = SubResource("CurveTexture_18y8s")
 
@@ -44,16 +44,16 @@ mesh = SubResource("BoxMesh_aqukx")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, 0, -0.5, 0.169845, 0.940537, 0.29418, 0.470269, -0.33969, 0.814529, -4, 1.71316, 6)
 
-[node name="block" parent="." instance=ExtResource("1_r5mcm")]
+[node name="block" parent="." instance=ExtResource("2_uid63")]
 transform = Transform3D(0.645458, 0, -0.763796, -0.414763, 0.839715, -0.350502, 0.641371, 0.543028, 0.542, -0.193758, 3.59201, 0.345567)
 
-[node name="block2" parent="." instance=ExtResource("1_r5mcm")]
+[node name="block2" parent="." instance=ExtResource("2_uid63")]
 transform = Transform3D(0.645458, 0, -0.763796, -0.414763, 0.839715, -0.350502, 0.641371, 0.543028, 0.542, -0.452727, 5.20076, 0.627824)
 
-[node name="block3" parent="." instance=ExtResource("1_r5mcm")]
+[node name="block3" parent="." instance=ExtResource("2_uid63")]
 transform = Transform3D(0.645458, 0, -0.763796, -0.414763, 0.839715, -0.350502, 0.641371, 0.543028, 0.542, -0.534708, 1.43624, 0.345567)
 
-[node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_qv2a0")]
+[node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("3_y6vmr")]
 x_sensitivity = 0.005
 center_node = NodePath("..")
 height_limit = 0
