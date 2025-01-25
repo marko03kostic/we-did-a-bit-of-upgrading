@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxl4y1d4ecvfg"]
+
+[ext_resource type="Script" path="res://camera/camera_3d.gd" id="1_jqyyf"]
+
+[node name="Camera" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+script = ExtResource("1_jqyyf")
+
+[node name="Arm" type="SpringArm3D" parent="."]
+unique_name_in_owner = true
+collision_mask = 0
+spring_length = 6.0
+
+[node name="Camera3D" type="Camera3D" parent="Arm"]
+unique_name_in_owner = true
