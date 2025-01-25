@@ -37,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Arm" type="SpringArm3D" parent="Pivot"]
 unique_name_in_owner = true
+collision_mask = 0
 spring_length = 6.0
 
 [node name="Camera3D" type="Camera3D" parent="Pivot/Arm" node_paths=PackedStringArray("center_node")]
