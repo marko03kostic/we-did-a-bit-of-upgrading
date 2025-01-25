@@ -18,11 +18,13 @@ func _ready() -> void:
 
 func enable_rng():
 	t.start(t.wait_time)
+	
 func disable_rng():
 	t.paused = true
 
 func apply_shake():
 	get_tree().get_nodes_in_group("Level").all(func (lvl): lvl.apply_shake())
+	
 func reduce_money(amount: int) -> bool:
 	if(money < amount):
 		no_more_money.emit()
