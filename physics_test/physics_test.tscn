@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dldpe6to636t3"]
+[gd_scene load_steps=5 format=3 uid="uid://dldpe6to636t3"]
 
+[ext_resource type="Script" path="res://physics_test/camera_3d.gd" id="1_n5lrs"]
 [ext_resource type="PackedScene" uid="uid://cx24hyfkqpa2v" path="res://physics_test/block/block.tscn" id="1_r5mcm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awnv6"]
@@ -18,9 +19,6 @@ shape = SubResource("BoxShape3D_awnv6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_aqukx")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897652, 3.81111)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, 0, -0.5, 0.169845, 0.940537, 0.29418, 0.470269, -0.33969, 0.814529, -4, 1.71316, 6)
 
@@ -32,3 +30,15 @@ transform = Transform3D(0.645458, 0, -0.763796, -0.414763, 0.839715, -0.350502, 
 
 [node name="block3" parent="." instance=ExtResource("1_r5mcm")]
 transform = Transform3D(0.645458, 0, -0.763796, -0.414763, 0.839715, -0.350502, 0.641371, 0.543028, 0.542, -0.534708, 1.43624, 0.345567)
+
+[node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Arm" type="SpringArm3D" parent="Pivot"]
+unique_name_in_owner = true
+spring_length = 6.0
+
+[node name="Camera3D" type="Camera3D" parent="Pivot/Arm" node_paths=PackedStringArray("center_node")]
+script = ExtResource("1_n5lrs")
+center_node = NodePath("../../..")
