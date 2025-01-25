@@ -36,23 +36,149 @@ size_flags_vertical = 3
 [node name="Choice1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Choice 1"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_right = 47.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Nidza Struja"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -50.5
+offset_right = 108.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "- Part of a violent gang
+- Carries a bat in his Audi
+- Likes street fights
+- Hasn't finished high school"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -23.0
+offset_right = 36.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "150 000 €"
 
 [node name="Choice2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Choice 2"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_right = 47.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Dimitrije Mito Dajic"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -50.5
+offset_right = 108.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "- Inherited a company
+- Prone to substance abuse
+- Arrested and freed 5 times
+- \"Do you know who am I?\""
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -23.0
+offset_right = 36.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "500 000 €"
 
 [node name="Choice3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Choice 3"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_right = 47.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Nebojsa Korup Sone"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -50.5
+offset_right = 108.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "- Nobody knows what he does
+- Drives a black limo
+- Has high cholesterol
+- A chain smoker"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -23.0
+offset_right = 36.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "1 300 000 €"
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice1" to="." method="_on_choice_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice2" to="." method="_on_choice_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice3" to="." method="_on_choice_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice2" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice3" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
