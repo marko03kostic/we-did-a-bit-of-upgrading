@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="we_did_a_bit_of_upgrading"
+run/main_scene="res://main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globals.gd"
 
 [rendering]
 
