@@ -10,7 +10,7 @@ size = Vector3(5, 1, 5)
 size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5xmh"]
-size = Vector3(10, 0.05, 10)
+size = Vector3(5, 0.05, 5)
 
 [node name="physics_test" type="Node3D"]
 script = ExtResource("1_uceki")
@@ -24,8 +24,7 @@ shape = SubResource("BoxShape3D_awnv6")
 mesh = SubResource("BoxMesh_aqukx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
-shadow_enabled = true
+transform = Transform3D(0.866025, 0, -0.5, 0.169845, 0.940537, 0.29418, 0.470269, -0.33969, 0.814529, -4, 1.71316, 6)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_qv2a0")]
 transform = Transform3D(1, 0, 0, 0, 0.642694, 0.766123, 0, -0.766123, 0.642694, 0, 5, 0)

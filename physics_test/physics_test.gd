@@ -1,27 +1,51 @@
 extends Node3D
 
 var block = preload("res://physics_test/block/block.tscn")
+var is_mouse_button_down : bool = false
+var spawn_block = false
+var block_instance
+@onready var collision_shape_3d: CollisionShape3D = $StaticBody3D2/CollisionShape3D
 
 func _ready() -> void:
-	for n in range(1,10):
-		var block_instance = block.instantiate()
-		add_child(block_instance)
-		block_instance.position.y = n
-		
-	
-	var block_instance = block.instantiate()
-	add_child(block_instance)
-	block_instance.position.y = 12
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func _physics_process(delta: float) -> void:
+	#if mouse_left_down:
+		##cast_ray_from_camera_to_mouse()
+		#print("mouse down")
+	#print(mouse_left_down)
+	pass
+
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				# Mouse button is pressed, set the flag
+				is_mouse_button_down = true
+				#print("Mouse button pressed")
+				block_instance = block.instantiate()
+				#block_instance.position = result.position
+				#block_instance.position.y += 0.5
+				block_instance.freeze = true
+				add_child(block_instance)
+
+			else:
+				# Mouse button is released, unset the flag
+				is_mouse_button_down = false
+				block_instance.freeze = false
+				#print("Mouse button released")
+	
+	# Handle mouse motion events (dragging)
+	if event is InputEventMouseMotion and is_mouse_button_down:
+		# Perform actions while dragging with the mouse button down
+		#print("Dragging with mouse button down")
 		cast_ray_from_camera_to_mouse()
 
-func cast_ray_from_camera_to_mouse():
+func cast_ray_from_camera_to_mouse() -> void:
 
 	# Get the mouse position within the viewport
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -37,14 +61,12 @@ func cast_ray_from_camera_to_mouse():
 	params.to = to
 	params.exclude = []
 
-	params.collision_mask = 1
+	params.collision_mask = 2 #raycast collision layer
 	var result = space_state.intersect_ray(params)
 	# Check if the ray hit something
 	if result:
-		print("Ray hit: ", result.position)
-		print("Collider: ", result.collider)
-		var block_instance = block.instantiate()
-		block_instance.position = result.position
-		add_child(block_instance)
+		block_instance.position.x = result.position.x
+		block_instance.position.z = result.position.z
+		block_instance.position.y = collision_shape_3d.position.y
 	else:
 		print("Ray did not hit anything.")
