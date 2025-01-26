@@ -45,10 +45,8 @@ text = "Main menu"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(570, 323)
-scale = Vector2(1.2, 1.216)
-position = Vector2(577, 326)
-scale = Vector2(0.598958, 0.607407)
+position = Vector2(583.479, 331.267)
+scale = Vector2(1.1946, 1.16921)
 texture = ExtResource("2_kr0ds")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
