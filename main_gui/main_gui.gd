@@ -17,7 +17,7 @@ func set_money_removed(money: int) -> void:
 	$RemovedMoney.text = "- %s" % [money]
 
 	await get_tree().create_timer(4).timeout
-	$RemovedMoneyMoney.text = ""
+	$RemovedMoney.text = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.money_updated.connect(money_updated)
