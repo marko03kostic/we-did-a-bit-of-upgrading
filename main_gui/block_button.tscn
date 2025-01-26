@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy5x6psuecjqc"]
+[gd_scene load_steps=2 format=3 uid="uid://cy5x6psuecjqc"]
 
 [ext_resource type="Script" path="res://main_gui/block_button.gd" id="1_vqd67"]
-[ext_resource type="Texture2D" uid="uid://d4fpy72dcbiac" path="res://icon.svg" id="2_rvw3w"]
 
 [node name="BlockButton" type="Button"]
 custom_minimum_size = Vector2(150, 150)
@@ -24,7 +23,9 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
-texture = ExtResource("2_rvw3w")
 expand_mode = 5
 stretch_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -15,18 +15,18 @@ var ICON = preload("res://icon.svg")
 const NADOG_1 = preload("res://blocks/nadog_1.tscn")
 const HOUSE_L = preload("res://art/house_L.gltf")
 const NADOG_2 = preload("res://blocks/nadog_2.tscn")
-const blocks = [{
-	"name": "1", "scene": NADOG_1, "price": 10000, 
-}, {
-	"name": "2", "scene": HOUSE_L, "price": 20000, 
-}, {
-	"name": "3", "scene": NADOG_2, "price": 30000, 
-}]
+const CONTAINER = preload("res://blocks/container.tscn")
+var blocks: Array[BlockResource] = []
 
 var selectedBlock = 0
 
 func _ready() -> void:
+	blocks.resize(4)
 	MainGui.visible = false;
+	blocks[0] = BlockResource.new(NADOG_1, 0, 1000)
+	blocks[1] = BlockResource.new(HOUSE_L, 1, 2000)
+	blocks[2] = BlockResource.new(NADOG_2, 2, 5000)
+	blocks[3] = BlockResource.new(NADOG_2, 3, 10000)
 	
 	add_child(earthquake_timer)
 	earthquake_timer.one_shot = false
@@ -35,13 +35,9 @@ func _ready() -> void:
 	
 	
 func start_a_level():
-	MainGui.block1Selected.connect(block1Selected)
-	MainGui.block2Selected.connect(block2Selected)
-	MainGui.block3Selected.connect(block3Selected)
 	money_updated.emit(money)
 	enable_rng()
 	MainGui.visible = true; 
-	MainGui.set_blocks(blocks[0]["price"], blocks[0]["scene"], blocks[1]["price"], blocks[1]["scene"], blocks[2]["price"], blocks[2]["scene"])
 	
 func enable_rng() -> void:
 	earthquake_timer.start(randi_range(rng_time_min, rng_time_max))
@@ -69,12 +65,7 @@ func block_placed():
 	
 func get_selected_block():
 	return blocks[selectedBlock]
-func block1Selected():
-	selectedBlock = 0
+func blockSelected(id:int) -> void:
+	selectedBlock = id
 	block_changed.emit(blocks[selectedBlock].scene)
-func block2Selected():
-	selectedBlock = 1
-	block_changed.emit(blocks[selectedBlock].scene)
-func block3Selected():
-	selectedBlock = 2
-	block_changed.emit(blocks[selectedBlock].scene)
+	

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_hifv4"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" groups=["BlockResourceGroup"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

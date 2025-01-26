@@ -32,6 +32,7 @@ import/blender/enabled=false
 
 Level=""
 MainGUI=""
+BlockResourceGroup=""
 
 [input]
 
