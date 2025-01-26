@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 				is_mouse_button_down = true
 				#print("Mouse button pressed")
 				if ray_cast_check():
-					print("ray cast check")
+					#print("ray cast check")
 					block_instance = block.instantiate()
 					block_instance.freeze = true
 					add_child(block_instance)
@@ -97,7 +97,7 @@ func move_placement_collision():
 	if placement_ray.is_colliding():
 		var point = placement_ray.get_collision_point(0)
 		placement_collision.position.y = point.y + placement_offset
-		print(point.y)
+		#print(point.y)
 		
 
 	
