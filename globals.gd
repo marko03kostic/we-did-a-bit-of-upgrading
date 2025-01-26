@@ -7,22 +7,21 @@ var number_of_blocks: int = 0
 
 signal no_more_money;
 var ICON = preload("res://icon.svg")
+
 func _ready() -> void:
 	MainGui.visible = false;
 	
 	add_child(earthquake_timer)
 	earthquake_timer.one_shot = false
 	earthquake_timer.autostart = false
-	earthquake_timer.wait_time = randi_range(5, 6)
 	earthquake_timer.timeout.connect(apply_shake)
 	
 func start_a_level():
 	MainGui.visible = true;
-	print_debug(ICON)
 	MainGui.set_blocks(1,  ICON, 2, ICON, 3, ICON)
 	
-func enable_rng():
-	earthquake_timer.start(earthquake_timer.wait_time)
+func enable_rng(rng_time_min: int, rng_time_max: int) -> void:
+	earthquake_timer.start(randi_range(rng_time_min, rng_time_max))
 	
 func disable_rng():
 	earthquake_timer.paused = true
