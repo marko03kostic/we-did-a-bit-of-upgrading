@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://da2ldmr20vnj3"]
+
+[ext_resource type="PackedScene" uid="uid://cbxulpoqkn4r6" path="res://art/nadog_1.gltf" id="1_4x8x7"]
+
+[sub_resource type="Environment" id="Environment_8rvgt"]
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+offset_right = 494.0
+offset_bottom = 513.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(512, 513)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 13.0509, 10)
+environment = SubResource("Environment_8rvgt")
+projection = 1
+size = 16.3698
+
+[node name="nadog_12" parent="SubViewport" instance=ExtResource("1_4x8x7")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27)

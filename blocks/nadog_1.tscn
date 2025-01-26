@@ -11,7 +11,7 @@ size = Vector3(5.05083, 3.21301, 3.24023)
 [sub_resource type="BoxShape3D" id="BoxShape3D_s317g"]
 size = Vector3(2.87891, 5.40338, 3.24023)
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="nadog1" type="RigidBody3D"]
 
 [node name="nadog_12" parent="." instance=ExtResource("1_38rt7")]
 
