@@ -71,6 +71,7 @@ func blockSelected(id:int) -> void:
 
 func win():
 	print("you win this level")
-
+	get_tree().change_scene_to_file("res://game_finished/game_finished.tscn")
 func lose():
 	print("you lose this level")
+	get_tree().change_scene_to_file("res://game_finished/game_finished.tscn")

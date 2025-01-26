@@ -43,3 +43,9 @@ func money_updated(money: int):
 		pass
 	set_money(money)
 	 
+
+func _on_retry_pressed() -> void:
+	get_tree().change_scene_to_file("res://physics_test/physics_test2.tscn")
+
+func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
