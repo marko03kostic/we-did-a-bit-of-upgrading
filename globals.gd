@@ -9,15 +9,18 @@ var rng_time_max:= 15
 @onready var earthquake_timer = Timer.new() 
 signal no_more_money
 signal money_updated(int)
+signal block_changed(int)
 
 var ICON = preload("res://icon.svg")
 const NADOG_1 = preload("res://blocks/nadog_1.tscn")
+const HOUSE_L = preload("res://art/house_L.gltf")
+const NADOG_2 = preload("res://blocks/nadog_2.tscn")
 const blocks = [{
 	"name": "1", "scene": NADOG_1, "price": 10000, 
 }, {
-	"name": "2", "scene": NADOG_1, "price": 20000, 
+	"name": "2", "scene": HOUSE_L, "price": 20000, 
 }, {
-	"name": "3", "scene": NADOG_1, "price": 30000, 
+	"name": "3", "scene": NADOG_2, "price": 30000, 
 }]
 
 var selectedBlock = 0
@@ -68,7 +71,10 @@ func get_selected_block():
 	return blocks[selectedBlock]
 func block1Selected():
 	selectedBlock = 0
+	block_changed.emit(blocks[selectedBlock].scene)
 func block2Selected():
 	selectedBlock = 1
+	block_changed.emit(blocks[selectedBlock].scene)
 func block3Selected():
 	selectedBlock = 2
+	block_changed.emit(blocks[selectedBlock].scene)
