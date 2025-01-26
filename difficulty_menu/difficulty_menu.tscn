@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://undd6idwn2hm"]
+[gd_scene load_steps=7 format=3 uid="uid://undd6idwn2hm"]
 
 [ext_resource type="Script" path="res://difficulty_menu/difficulty_menu.gd" id="1_6ct54"]
+[ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_6tpja"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjcdt"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5k44"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_82t6q"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_j03bp"]
+font_size = 26
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,7 +32,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -385.0
-offset_top = -206.0
+offset_top = -273.0
 offset_right = 405.0
 offset_bottom = 232.0
 grow_horizontal = 2
@@ -28,6 +41,12 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Choose difficulty"
+label_settings = SubResource("LabelSettings_kjcdt")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -79,6 +98,7 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "150 000 €"
+label_settings = SubResource("LabelSettings_t5k44")
 
 [node name="Choice2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -126,6 +146,7 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "500 000 €"
+label_settings = SubResource("LabelSettings_82t6q")
 
 [node name="Choice3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -173,10 +194,17 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "1 300 000 €"
+label_settings = SubResource("LabelSettings_j03bp")
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(577, 326)
+scale = Vector2(0.598958, 0.607407)
+texture = ExtResource("2_6tpja")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice1" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice2" to="." method="_on_choice_2_pressed"]
