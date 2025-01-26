@@ -16,6 +16,18 @@ func set_blocks(block1Price: int, block1: PackedScene, block2Price: int, block2:
 	$MarginContainer/BlockButtonsContainer/BlockButton3.setImage(block3)
 func set_money(money: int) -> void:
 	$MoneyLabel.text = "Money: %s€" % [money]
+	
+func set_money_added(money: int) -> void:
+	$AddedMoney.text = "+ %s" % [money]
+
+	await get_tree().create_timer(4).timeout
+	$AddedMoney.text = ""
+	
+func set_money_removed(money: int) -> void:
+	$RemovedMoney.text = "- %s" % [money]
+
+	await get_tree().create_timer(4).timeout
+	$RemovedMoneyMoney.text = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MarginContainer/BlockButtonsContainer/BlockButton.connect("pressed", block_1_pressed)
@@ -35,6 +47,14 @@ func block_3_pressed ():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
 func money_updated(money: int):
 	print_debug("money")
+	if (money > int($MoneyLabel.text)):
+		set_money_added(money - int($MoneyLabel.text))
+	elif (money < int($MoneyLabel.text)):
+		set_money_removed(int($MoneyLabel.text) - money)
+	else:
+		pass
 	set_money(money)
+	 

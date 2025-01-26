@@ -46,7 +46,7 @@ layout_mode = 2
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 730.0
+offset_right = 496.0
 offset_bottom = 97.0
 theme_override_font_sizes/normal_font_size = 35
 text = "Money: "
@@ -60,3 +60,16 @@ dialog_text = "An inspector is about to inspect your building progress
 You are likely to get a fine due to using dangerous materials.
 Take the fine, or try to bribe him?"
 cancel_button_text = "Accept the fine"
+
+[node name="AddedMoney" type="Label" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 60.0
+offset_right = 363.0
+offset_bottom = 116.0
+
+[node name="RemovedMoney" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 60.0
+offset_right = 363.0
+offset_bottom = 116.0
