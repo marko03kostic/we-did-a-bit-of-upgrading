@@ -1,7 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd7jhj4tug14r"]
+[gd_scene load_steps=19 format=3 uid="uid://corxpp8ns6uci"]
 
 [ext_resource type="Script" path="res://physics_test/physics_test2.gd" id="1_3tw44"]
 [ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_6fdts"]
+[ext_resource type="PackedScene" uid="uid://d23qr2f57k1s8" path="res://art/environment.glb" id="2_bk326"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v8nld"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0.670175, 0.597464, 0.503778, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_wfqns"]
+sky_material = SubResource("ProceduralSkyMaterial_v8nld")
+
+[sub_resource type="Environment" id="Environment_t1bdv"]
+background_mode = 2
+sky = SubResource("Sky_wfqns")
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.670588, 0.596078, 0.501961, 1)
+fog_density = 0.005
+fog_height = 64.67
+fog_height_density = 0.001
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awnv6"]
 size = Vector3(50, 1, 50)
@@ -50,6 +69,9 @@ placement_height = 5.0
 placement_spacing = 5.0
 level_win_height = 5.0
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t1bdv")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -58,9 +80,17 @@ shape = SubResource("BoxShape3D_awnv6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_aqukx")
 
+[node name="environment" parent="StaticBody3D" instance=ExtResource("2_bk326")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+transform = Transform3D(0.999986, 0.00324704, 0.00430348, -0.00431253, 0.00279063, 0.999987, 0.003235, -0.999991, 0.00280458, 0, 5, 0)
+light_energy = 0.09
 shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.470054, -0.637056, 0.610908, 0.26203, 0.761655, 0.59264, -0.842846, -0.118497, 0.524947, 0, 5, 0)
+light_energy = 0.38
+directional_shadow_max_distance = 719.8
 
 [node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_6fdts")]
 transform = Transform3D(1, 0, 0, 0, 0.642694, 0.766123, 0, -0.766123, 0.642694, 0, 5, 0)
