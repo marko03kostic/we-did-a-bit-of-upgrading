@@ -26,6 +26,8 @@ func block_changed (scene: PackedScene):
 	print_debug("changed")
 	block = scene
 func _input(event: InputEvent) -> void:
+	if(Globals.money < Globals.get_selected_block().price):
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
