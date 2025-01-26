@@ -17,6 +17,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -42,3 +44,14 @@ offset_right = 258.0
 offset_bottom = 76.0
 theme_override_font_sizes/normal_font_size = 35
 text = "Money: "
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Notice!"
+initial_position = 1
+size = Vector2i(483, 132)
+visible = true
+ok_button_text = "Try to bribe"
+dialog_text = "An inspector is about to inspect your building progress
+You are likely to get a fine due to using dangerous materials.
+Take the fine, or try to bribe him?"
+cancel_button_text = "Accept the fine"
