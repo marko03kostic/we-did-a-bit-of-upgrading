@@ -5,9 +5,10 @@ var is_mouse_button_down : bool = false
 var spawn_block = false
 var block_instance
 @onready var collision_shape_3d: CollisionShape3D = $StaticBody3D2/CollisionShape3D
+@export var placement_spacing : float = 1.0
 
 func _ready() -> void:
-	pass
+	collision_shape_3d.position.y = 3.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,8 +29,6 @@ func _input(event: InputEvent) -> void:
 				is_mouse_button_down = true
 				#print("Mouse button pressed")
 				block_instance = block.instantiate()
-				#block_instance.position = result.position
-				#block_instance.position.y += 0.5
 				block_instance.freeze = true
 				add_child(block_instance)
 
@@ -37,6 +36,7 @@ func _input(event: InputEvent) -> void:
 				# Mouse button is released, unset the flag
 				is_mouse_button_down = false
 				block_instance.freeze = false
+				collision_shape_3d.position.y += placement_spacing
 				#print("Mouse button released")
 	
 	# Handle mouse motion events (dragging)
