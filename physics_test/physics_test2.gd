@@ -12,6 +12,7 @@ var block_instance
 @onready var finish_line: CollisionShape3D = $finish_area/finish_line
 @onready var finish_area: Area3D = $finish_area
 @export var win_time : float = 5.0
+@export var rot_speed: float = 0.1
 
 @export var level_win_height : float = 20
 
@@ -31,6 +32,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not is_mouse_button_down:
 		move_placement_collision()
+	if is_mouse_button_down:
+		get_input_for_rotating()
 	
 func block_changed (scene: PackedScene):
 	print_debug("changed")
@@ -63,6 +66,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and is_mouse_button_down:
 		# Perform actions while dragging with the mouse button down
 		#print("Dragging with mouse button down")
+		#get_input_for_rotating()
 		if ray_cast_check():
 			cast_ray_from_camera_to_mouse()
 
@@ -125,7 +129,15 @@ func _on_finish_area_body_entered(body: Node3D) -> void:
 	if finish_area.get_overlapping_bodies():
 		Globals.win()
 	
-
+func get_input_for_rotating():
+	if Input.is_action_pressed("ui_up"):
+		block_instance.rotation.y += rot_speed
+	if Input.is_action_pressed("ui_down"):
+		block_instance.rotation.y -= rot_speed
+	if Input.is_action_pressed("ui_left"):
+		block_instance.rotation.x += rot_speed
+	if Input.is_action_pressed("ui_right"):
+		block_instance.rotation.x -= rot_speed
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	Globals.lose()
