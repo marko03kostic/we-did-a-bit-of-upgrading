@@ -21,14 +21,14 @@ func set_money_removed(money: int) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.money_updated.connect(money_updated)
-	
+	Globals.inspection_starts.connect(start_inspection)
 	for block in Globals.blocks:
 		var btn:BlockButton = BLOCK_BUTTON.instantiate()
 		%BlockButtonsContainer.add_child(btn)
 		btn.setImage(block.scene)
 		btn.setPrice(block.price)
 		btn.id = block.id
-		
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -43,3 +43,20 @@ func money_updated(money: int):
 		pass
 	set_money(money)
 	 
+func start_inspection():
+	$InspectionDialog1.visible = true;
+
+
+func _on_inspection_dialog_1_confirmed() -> void:
+	var r = randf_range(0,1)
+	if(r > 0.7):
+		$BribeFailedDialog.visible = true
+		Globals.bribe_fail()
+	else:
+		$BribeSuccessDialog.visible = true
+		Globals.bribe_success()
+
+func _on_inspection_dialog_1_canceled() -> void:
+	$BribeDeclainedDialog.visible = true
+	Globals.bribe_declined()
+	
