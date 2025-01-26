@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd7jhj4tug14r"]
+[gd_scene load_steps=8 format=3 uid="uid://dd7jhj4tug14r"]
 
 [ext_resource type="Script" path="res://physics_test/physics_test2.gd" id="1_3tw44"]
 [ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_6fdts"]
@@ -11,6 +11,14 @@ size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5xmh"]
 size = Vector3(10, 0.05, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnoij"]
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.113725)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_drf6c"]
+material = SubResource("StandardMaterial3D_pnoij")
+size = Vector2(10, 10)
 
 [node name="physics_test" type="Node3D"]
 script = ExtResource("1_3tw44")
@@ -37,6 +45,9 @@ height_limit = 0
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38827, 0)
+[node name="placement_collision" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("BoxShape3D_h5xmh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/placement_collision"]
+mesh = SubResource("PlaneMesh_drf6c")
+skeleton = NodePath("../..")
