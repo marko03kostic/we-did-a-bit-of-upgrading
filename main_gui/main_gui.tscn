@@ -24,7 +24,10 @@ offset_right = 170.0
 offset_bottom = 231.0
 grow_vertical = 2
 
-[node name="BlockButtonsContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="BlockButtonsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -59,6 +62,7 @@ offset_right = 363.0
 offset_bottom = 116.0
 
 [node name="RemovedMoney" type="Label" parent="."]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 60.0
 offset_right = 363.0
