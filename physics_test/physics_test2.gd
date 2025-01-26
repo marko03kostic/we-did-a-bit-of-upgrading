@@ -15,10 +15,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	#if mouse_left_down:
-		##cast_ray_from_camera_to_mouse()
-		#print("mouse down")
-	#print(mouse_left_down)
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -26,17 +22,17 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				# Mouse button is pressed, set the flag
-				#print (ray_cast_check())
 				is_mouse_button_down = true
+				#print("Mouse button pressed")
 				if ray_cast_check():
-					#print("Mouse button pressed")
+					print("ray cast check")
 					block_instance = block.instantiate()
 					block_instance.freeze = true
 					add_child(block_instance)
 			else:
 				# Mouse button is released, unset the flag
+				is_mouse_button_down = false
 				if ray_cast_check():
-					is_mouse_button_down = false
 					block_instance.freeze = false
 					placement_collision.position.y += placement_spacing
 				#print("Mouse button released")
@@ -91,6 +87,6 @@ func ray_cast_check():
 	params.collision_mask = 2 #raycast collision layer
 	var result = space_state.intersect_ray(params)
 	# Check if the ray hit something
-	return result
+	return result.size()
 
 	
