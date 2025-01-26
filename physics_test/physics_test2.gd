@@ -5,17 +5,21 @@ var is_mouse_button_down : bool = false
 var spawn_block = false
 var block_instance
 @onready var placement_collision: CollisionShape3D = $StaticBody3D2/placement_collision
+@export var placement_height : float = 3.0
 @export var placement_spacing : float = 1.0 #how much it moves each step
+@onready var placement_ray: RayCast3D = $placement_ray
+@export var placement_offset : float = 5.0
 
 func _ready() -> void:
-	placement_collision.position.y = 3.0
+	placement_collision.position.y = placement_height
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	pass
+	if not is_mouse_button_down:
+		move_placement_collision()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -34,7 +38,7 @@ func _input(event: InputEvent) -> void:
 				is_mouse_button_down = false
 				if ray_cast_check():
 					block_instance.freeze = false
-					placement_collision.position.y += placement_spacing
+					#placement_collision.position.y += placement_spacing
 				#print("Mouse button released")
 	
 	# Handle mouse motion events (dragging)
@@ -88,5 +92,12 @@ func ray_cast_check():
 	var result = space_state.intersect_ray(params)
 	# Check if the ray hit something
 	return result.size()
+
+func move_placement_collision():
+	if placement_ray.is_colliding():
+		var point = placement_ray.get_collision_point()
+		placement_collision.position.y = point.y + placement_offset
+		print(point.y)
+		
 
 	
