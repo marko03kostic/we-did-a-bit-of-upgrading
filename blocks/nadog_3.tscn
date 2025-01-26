@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb2lkwnnbpmak"]
+
+[ext_resource type="PackedScene" uid="uid://b4a4gi4iw468x" path="res://art/nadog_3.gltf" id="1_i804s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5hn0"]
+size = Vector3(13.9131, 3.28149, 3.24805)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hss0v"]
+size = Vector3(4.46698, 5.87463, 3.26172)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="nadog_3" parent="." instance=ExtResource("1_i804s")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.021, 1.68005, 0)
+shape = SubResource("BoxShape3D_t5hn0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0329285, 2.97662, 0)
+shape = SubResource("BoxShape3D_hss0v")
