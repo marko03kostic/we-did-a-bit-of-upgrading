@@ -12,7 +12,7 @@ size = Vector3(5, 1, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5xmh"]
 size = Vector3(10, 0.05, 10)
 
-[node name="physics_test" type="Node3D"]
+[node name="physics_test" type="Node3D" groups=["Level"]]
 script = ExtResource("1_3tw44")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

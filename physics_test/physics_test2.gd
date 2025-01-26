@@ -1,6 +1,6 @@
 extends Node3D
 
-var block = preload("res://physics_test/block/block.tscn")
+@onready var block:PackedScene = Globals.get_selected_block().scene
 var is_mouse_button_down : bool = false
 var spawn_block = false
 var block_instance
@@ -31,6 +31,7 @@ func _input(event: InputEvent) -> void:
 				block_instance = block.instantiate()
 				block_instance.freeze = true
 				add_child(block_instance)
+				Globals.block_placed()
 
 			else:
 				# Mouse button is released, unset the flag
