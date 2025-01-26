@@ -31,6 +31,30 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Base": {
+"generate/physics": true
+},
+"PATH:Cube": {
+"generate/physics": true
+},
+"PATH:Easy 1": {
+"generate/physics": true
+},
+"PATH:Easy 2": {
+"generate/physics": true
+},
+"PATH:Hard 1": {
+"generate/physics": true
+},
+"PATH:Hard 2": {
+"generate/physics": true
+},
+"PATH:Medium 1": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
