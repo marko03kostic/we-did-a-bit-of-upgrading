@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhri7vvsf1u26"]
+[gd_scene load_steps=4 format=3 uid="uid://bhri7vvsf1u26"]
 
 [ext_resource type="Script" path="res://game_finished/game_finished.gd" id="1_kq345"]
+[ext_resource type="Texture2D" uid="uid://dl7idio4hre1i" path="res://game_finished/2.webp" id="2_kr0ds"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4l7h5"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameFinished" type="Control"]
 layout_mode = 3
@@ -19,9 +24,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -220.0
-offset_top = -158.5
+offset_top = -21.0
 offset_right = 220.0
-offset_bottom = 158.5
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -31,10 +36,17 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Congratulations, you're under arrest for your impressive feats in unauthorized construction, illegal activities, and top-tier corruption. You're going to jail for a long time!"
+label_settings = SubResource("LabelSettings_4l7h5")
 autowrap_mode = 1
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(577, 326)
+scale = Vector2(0.598958, 0.607407)
+texture = ExtResource("2_kr0ds")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
