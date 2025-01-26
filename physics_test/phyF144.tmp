@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dldpe6to636t3"]
+
+[ext_resource type="Script" path="res://physics_test/physics_test.gd" id="1_uceki"]
+[ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_qv2a0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awnv6"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqukx"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5xmh"]
+size = Vector3(5, 0.05, 5)
+
+[node name="physics_test" type="Node3D"]
+script = ExtResource("1_uceki")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_awnv6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_aqukx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0.169845, 0.940537, 0.29418, 0.470269, -0.33969, 0.814529, -4, 1.71316, 6)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_qv2a0")]
+transform = Transform3D(1, 0, 0, 0, 0.642694, 0.766123, 0, -0.766123, 0.642694, 0, 5, 0)
+x_sensitivity = 0.005
+center_node = NodePath("..")
+height_limit = 0
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38827, 0)
+shape = SubResource("BoxShape3D_h5xmh")
