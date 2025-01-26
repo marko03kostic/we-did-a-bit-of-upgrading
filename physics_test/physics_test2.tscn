@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dldpe6to636t3"]
 
-[ext_resource type="Script" path="res://physics_test/physics_test.gd" id="1_uceki"]
-[ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_qv2a0"]
+[ext_resource type="Script" path="res://physics_test/physics_test2.gd" id="1_3tw44"]
+[ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_6fdts"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awnv6"]
 size = Vector3(5, 1, 5)
@@ -13,7 +13,7 @@ size = Vector3(5, 1, 5)
 size = Vector3(10, 0.05, 10)
 
 [node name="physics_test" type="Node3D"]
-script = ExtResource("1_uceki")
+script = ExtResource("1_3tw44")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -27,7 +27,7 @@ mesh = SubResource("BoxMesh_aqukx")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 shadow_enabled = true
 
-[node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_qv2a0")]
+[node name="Camera" parent="." node_paths=PackedStringArray("center_node") instance=ExtResource("2_6fdts")]
 transform = Transform3D(1, 0, 0, 0, 0.642694, 0.766123, 0, -0.766123, 0.642694, 0, 5, 0)
 x_sensitivity = 0.005
 center_node = NodePath("..")
