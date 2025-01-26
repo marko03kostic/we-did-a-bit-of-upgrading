@@ -2,14 +2,19 @@ extends Node
 
 var money: int = 0
 var number_of_blocks: int = 0
-var rng_time_min:= 6
-var rng_time_max:= 15
+var rng_time_min:= 15
+var rng_time_max:= 30
 
+const inspection_penalty = 10000
+const inspection_bribery = 5000
+const bribery_loss = 20000
 
 @onready var earthquake_timer = Timer.new() 
+@onready var inspection_timer = Timer.new() 
 signal no_more_money
 signal money_updated(int)
 signal block_changed(int)
+signal inspection_starts
 
 var ICON = preload("res://icon.svg")
 const NADOG_1 = preload("res://blocks/nadog_1.tscn")
@@ -33,6 +38,10 @@ func _ready() -> void:
 	earthquake_timer.autostart = false
 	earthquake_timer.timeout.connect(apply_shake)
 	
+	add_child(inspection_timer)
+	inspection_timer.one_shot = false
+	inspection_timer.autostart = false
+	inspection_timer.timeout.connect(start_inspection)
 	
 func start_a_level():
 	money_updated.emit(money)
@@ -40,6 +49,7 @@ func start_a_level():
 	MainGui.visible = true; 
 	
 func enable_rng() -> void:
+	earthquake_timer.start(randi_range(rng_time_min, rng_time_max))
 	earthquake_timer.start(randi_range(rng_time_min, rng_time_max))
 	
 func disable_rng():
@@ -68,6 +78,16 @@ func get_selected_block():
 func blockSelected(id:int) -> void:
 	selectedBlock = id
 	block_changed.emit(blocks[selectedBlock].scene)
+
+func start_inspection():
+	inspection_starts.emit()
+
+func bribe_success():
+	reduce_money(inspection_bribery)
+func bribe_fail(): 
+	reduce_money(bribery_loss)
+func bribe_declined(): 
+	reduce_money(inspection_penalty)
 
 func win():
 	print("you win this level")
