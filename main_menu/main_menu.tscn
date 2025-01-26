@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c62lo1sk5tm6s"]
+[gd_scene load_steps=3 format=3 uid="uid://c62lo1sk5tm6s"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_hifv4"]
+[ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_5hst3"]
 
 [node name="MainMenu" type="Control" groups=["BlockResourceGroup"]]
 layout_mode = 3
@@ -52,15 +53,13 @@ text = "Quit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -565.0
+offset_right = 574.0
+offset_bottom = 185.0
+grow_horizontal = 2
 
 [node name="Label7" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -70,30 +69,39 @@ text = "Global Game Jam 2025"
 layout_mode = 2
 text = "Made by"
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "crknuchu"
-horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "nothke"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "txrpe"
+text = "crknuchu"
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="VBoxContainer"]
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "marko03kostic"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "NikolaTufegdzic"
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="VBoxContainer"]
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "marko03kostic"
+text = "txrpe"
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(577, 326)
+scale = Vector2(0.598958, 0.607407)
+texture = ExtResource("2_5hst3")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
