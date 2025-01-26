@@ -41,7 +41,8 @@ offset_bottom = 97.0
 theme_override_font_sizes/normal_font_size = 35
 text = "Money: "
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+[node name="InspectionDialog1" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
 title = "Notice!"
 initial_position = 1
 size = Vector2i(483, 132)
@@ -59,7 +60,36 @@ offset_right = 363.0
 offset_bottom = 116.0
 
 [node name="RemovedMoney" type="Label" parent="."]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 60.0
 offset_right = 363.0
 offset_bottom = 116.0
+
+[node name="BribeSuccessDialog" type="AcceptDialog" parent="."]
+auto_translate_mode = 1
+initial_position = 2
+size = Vector2i(728, 106)
+dialog_text = "The inspector accepts the subtle donation, 
+and decides to cut his workday a bit earlier today"
+dialog_close_on_escape = false
+
+[node name="BribeDeclainedDialog" type="AcceptDialog" parent="."]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(620, 132)
+ok_button_text = "Ok"
+dialog_text = "You chose not to try to bribe and get fined for using sub par quality materials."
+dialog_close_on_escape = false
+
+[node name="BribeFailedDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+size = Vector2i(620, 132)
+ok_button_text = "Damn you!"
+dialog_text = "Inspector: Are you trying to bribe me? I am bringing this to the court of justice!
+
+You get fined a higher sum than the original bill could've cost."
+dialog_close_on_escape = false
+
+[connection signal="canceled" from="InspectionDialog1" to="." method="_on_inspection_dialog_1_canceled"]
+[connection signal="confirmed" from="InspectionDialog1" to="." method="_on_inspection_dialog_1_confirmed"]
