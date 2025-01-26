@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd7jhj4tug14r"]
+[gd_scene load_steps=12 format=3 uid="uid://dd7jhj4tug14r"]
 
 [ext_resource type="Script" path="res://physics_test/physics_test2.gd" id="1_3tw44"]
 [ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_6fdts"]
@@ -35,20 +35,12 @@ albedo_color = Color(1, 0, 0, 0.215686)
 material = SubResource("StandardMaterial3D_c4bwh")
 size = Vector2(50, 50)
 
-[sub_resource type="BoxMesh" id="BoxMesh_n3uet"]
-size = Vector3(15, 1, 15)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lpgcq"]
-size = Vector3(15, 1, 15)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1v0uj"]
-size = Vector3(50, 1, 50)
-
 [node name="physics_test" type="Node3D"]
 script = ExtResource("1_3tw44")
-placement_height = 5.0
+placement_height = 10.0
 placement_spacing = 5.0
-level_win_height = 5.0
+placement_offset = null
+level_win_height = 50.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -92,22 +84,3 @@ shape = SubResource("BoxShape3D_lw6o6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="finish_area/finish_line"]
 mesh = SubResource("PlaneMesh_gfty6")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38677, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
-mesh = SubResource("BoxMesh_n3uet")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-shape = SubResource("BoxShape3D_lpgcq")
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.756739, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_1v0uj")
-
-[connection signal="area_entered" from="finish_area" to="." method="_on_finish_area_area_entered"]
-[connection signal="body_entered" from="finish_area" to="." method="_on_finish_area_body_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -9,10 +9,20 @@ var block_instance
 @export var placement_spacing : float = 1.0 #how much it moves each step
 @onready var placement_ray: ShapeCast3D = $placement_ray
 @export var placement_offset : float = 5.0
+@onready var finish_line: CollisionShape3D = $finish_area/finish_line
+@onready var finish_area: Area3D = $finish_area
+@export var win_time : float = 5.0
+
+@export var level_win_height : float = 20
+
+signal win
+signal lose
 
 func _ready() -> void:
 	Globals.block_changed.connect(block_changed)
 	placement_collision.position.y = placement_height
+	finish_line.position.y = level_win_height
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -105,6 +115,17 @@ func move_placement_collision():
 	if placement_ray.is_colliding():
 		var point = placement_ray.get_collision_point(0)
 		placement_collision.position.y = point.y + placement_offset
-		
 
+func finish_line_check():
+	pass
+		
+func _on_finish_area_body_entered(body: Node3D) -> void:
 	
+	await get_tree().create_timer(win_time).timeout# removes this node from scene
+	if finish_area.get_overlapping_bodies():
+		Globals.win()
+	
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	Globals.lose()

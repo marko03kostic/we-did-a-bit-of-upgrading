@@ -68,4 +68,9 @@ func get_selected_block():
 func blockSelected(id:int) -> void:
 	selectedBlock = id
 	block_changed.emit(blocks[selectedBlock].scene)
-	
+
+func win():
+	print("you win this level")
+
+func lose():
+	print("you lose this level")
