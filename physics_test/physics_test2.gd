@@ -7,7 +7,7 @@ var block_instance
 @onready var placement_collision: CollisionShape3D = $StaticBody3D2/placement_collision
 @export var placement_height : float = 3.0
 @export var placement_spacing : float = 1.0 #how much it moves each step
-@onready var placement_ray: RayCast3D = $placement_ray
+@onready var placement_ray: ShapeCast3D = $placement_ray
 @export var placement_offset : float = 5.0
 
 func _ready() -> void:
@@ -95,7 +95,7 @@ func ray_cast_check():
 
 func move_placement_collision():
 	if placement_ray.is_colliding():
-		var point = placement_ray.get_collision_point()
+		var point = placement_ray.get_collision_point(0)
 		placement_collision.position.y = point.y + placement_offset
 		print(point.y)
 		
