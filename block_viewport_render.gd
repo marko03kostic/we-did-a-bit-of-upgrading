@@ -7,7 +7,8 @@ func _ready() -> void:
 	if(rendered_node.can_instantiate()):
 		var n = rendered_node.instantiate()
 		$SubViewport.add_child(n)
-		n.freeze = true;
+		if "freeze" in n:
+			n.freeze = true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -9,6 +9,7 @@ var block_instance
 
 func _ready() -> void:
 	placement_collision.position.y = 3.0
+	Globals.block_changed.connect(block_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,7 +17,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
-
+func block_changed (scene: PackedScene):
+	print_debug("changed")
+	block = scene
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -27,13 +30,16 @@ func _input(event: InputEvent) -> void:
 				if ray_cast_check():
 					print("ray cast check")
 					block_instance = block.instantiate()
-					block_instance.freeze = true
+					if "freeze" in block_instance:
+						block_instance.freeze = true
 					add_child(block_instance)
+					Globals.block_placed()
 			else:
 				# Mouse button is released, unset the flag
 				is_mouse_button_down = false
 				if ray_cast_check():
-					block_instance.freeze = false
+					if "freeze" in block_instance:
+						block_instance.freeze = false
 					placement_collision.position.y += placement_spacing
 				#print("Mouse button released")
 	
