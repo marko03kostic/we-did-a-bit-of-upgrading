@@ -78,3 +78,9 @@ func block2Selected():
 func block3Selected():
 	selectedBlock = 2
 	block_changed.emit(blocks[selectedBlock].scene)
+
+func win():
+	print("you win this level")
+
+func lose():
+	print("you lose this level")
