@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwa4ob2i0hwy0"]
+
+[ext_resource type="PackedScene" uid="uid://biqle2057c7gi" path="res://art/zgrada_1.gltf" id="1_rh1ck"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5g180"]
+size = Vector3(7.95203, 15.5204, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7e3k"]
+size = Vector3(7.22992, 18.4694, 5.08643)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_buktn"]
+size = Vector3(3.74046, 18.4694, 2.05801)
+
+[node name="zgrada_1" type="RigidBody3D"]
+
+[node name="zgrada_12" parent="." instance=ExtResource("1_rh1ck")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261414, 7.761, 0)
+shape = SubResource("BoxShape3D_5g180")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264511, 9.27299, -0.200684)
+shape = SubResource("BoxShape3D_i7e3k")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98972, 9.27299, 2.60622)
+shape = SubResource("BoxShape3D_buktn")
