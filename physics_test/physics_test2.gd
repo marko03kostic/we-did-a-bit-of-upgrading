@@ -131,13 +131,13 @@ func _on_finish_area_body_entered(body: Node3D) -> void:
 	
 func get_input_for_rotating():
 	if Input.is_action_pressed("ui_up"):
-		block_instance.rotation.y += rot_speed
-	if Input.is_action_pressed("ui_down"):
-		block_instance.rotation.y -= rot_speed
-	if Input.is_action_pressed("ui_left"):
 		block_instance.rotation.x += rot_speed
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_down"):
 		block_instance.rotation.x -= rot_speed
+	if Input.is_action_pressed("ui_left"):
+		block_instance.rotation.y += rot_speed
+	if Input.is_action_pressed("ui_right"):
+		block_instance.rotation.y -= rot_speed
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	Globals.lose()

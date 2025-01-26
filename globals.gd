@@ -29,7 +29,7 @@ func _ready() -> void:
 	blocks.resize(4)
 	MainGui.visible = false;
 	blocks[0] = BlockResource.new(NADOG_1, 0, 1000)
-	blocks[1] = BlockResource.new(HOUSE_L, 1, 2000)
+	blocks[1] = BlockResource.new(CONTAINER, 1, 2000)
 	blocks[2] = BlockResource.new(NADOG_2, 2, 5000)
 	blocks[3] = BlockResource.new(NADOG_2, 3, 10000)
 	
