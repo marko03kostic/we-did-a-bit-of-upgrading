@@ -4,9 +4,9 @@ var money: int = 0
 var number_of_blocks: int = 0
 
 @onready var earthquake_timer = Timer.new() 
-
 signal no_more_money;
 var ICON = preload("res://icon.svg")
+const NADOG_1 = preload("res://blocks/nadog_1.tscn")
 
 func _ready() -> void:
 	MainGui.visible = false;
@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 func start_a_level():
 	MainGui.visible = true;
-	MainGui.set_blocks(1,  ICON, 2, ICON, 3, ICON)
+	MainGui.set_blocks(1,  NADOG_1, 2, NADOG_1, 3, NADOG_1)
 	
 func enable_rng(rng_time_min: int, rng_time_max: int) -> void:
 	earthquake_timer.start(randi_range(rng_time_min, rng_time_max))

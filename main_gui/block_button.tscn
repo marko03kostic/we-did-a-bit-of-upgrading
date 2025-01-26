@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://d4fpy72dcbiac" path="res://icon.svg" id="2_rvw3w"]
 
 [node name="BlockButton" type="Button"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
+offset_right = 184.0
+offset_bottom = 220.0
 script = ExtResource("1_vqd67")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -23,12 +25,6 @@ autowrap_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("2_rvw3w")
-expand_mode = 3
-stretch_mode = 5
+expand_mode = 5
+stretch_mode = 2

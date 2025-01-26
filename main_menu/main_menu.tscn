@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c62lo1sk5tm6s"]
+[gd_scene load_steps=2 format=3 uid="uid://c62lo1sk5tm6s"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_hifv4"]
-[ext_resource type="PackedScene" uid="uid://cbxulpoqkn4r6" path="res://art/nadog_1.gltf" id="2_jxfjo"]
-
-[sub_resource type="Environment" id="Environment_8rvgt"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -49,26 +46,6 @@ text = "Options"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 1
-offset_right = 512.0
-offset_bottom = 512.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 13.0509, 10)
-environment = SubResource("Environment_8rvgt")
-projection = 1
-size = 16.3698
-
-[node name="nadog_12" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_jxfjo")]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
