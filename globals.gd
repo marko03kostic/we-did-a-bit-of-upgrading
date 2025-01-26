@@ -28,10 +28,10 @@ var selectedBlock = 0
 func _ready() -> void:
 	blocks.resize(4)
 	MainGui.visible = false;
-	blocks[0] = BlockResource.new(NADOG_1, 0, 1000)
-	blocks[1] = BlockResource.new(CONTAINER, 1, 2000)
-	blocks[2] = BlockResource.new(NADOG_2, 2, 5000)
-	blocks[3] = BlockResource.new(NADOG_2, 3, 10000)
+	blocks[0] = BlockResource.new(NADOG_1, 0, 20000)
+	blocks[1] = BlockResource.new(CONTAINER, 1, 12000)
+	blocks[2] = BlockResource.new(NADOG_2, 2, 9000)
+	blocks[3] = BlockResource.new(NADOG_2, 3, 13000)
 	
 	add_child(earthquake_timer)
 	earthquake_timer.one_shot = false

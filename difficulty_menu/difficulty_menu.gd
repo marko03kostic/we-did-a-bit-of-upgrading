@@ -9,17 +9,19 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_choice_1_pressed() -> void:
-	Globals.money = 150_000
+	Globals.increase_money(150_000)
 	Globals.start_a_level()
 	get_tree().change_scene_to_file("res://physics_test/physics_test2.tscn")
 
 func _on_choice_2_pressed() -> void:
-	Globals.money = 500_000
+	Globals.increase_money(500_000)
 	Globals.start_a_level()
 	get_tree().change_scene_to_file("res://physics_test/physics_test2.tscn")
+
 func _on_choice_3_pressed() -> void:
-	Globals.money = 1_300_000
+	Globals.increase_money(1_300_000)
 	Globals.start_a_level()
 	get_tree().change_scene_to_file("res://physics_test/physics_test2.tscn")
+
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")

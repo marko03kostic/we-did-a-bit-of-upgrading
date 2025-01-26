@@ -179,6 +179,6 @@ layout_mode = 2
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice1" to="." method="_on_choice_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice2" to="." method="_on_choice_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice3" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice2" to="." method="_on_choice_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice3" to="." method="_on_choice_3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
