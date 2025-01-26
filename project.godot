@@ -24,6 +24,10 @@ MainGui="*res://main_gui/main_gui.tscn"
 
 gdscript/warnings/untyped_declaration=1
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Level=""
