@@ -81,6 +81,7 @@ func block_placed():
 	
 func get_selected_block():
 	return blocks[selectedBlock]
+	
 func blockSelected(id:int) -> void:
 	selectedBlock = id
 	block_changed.emit(blocks[selectedBlock].scene)

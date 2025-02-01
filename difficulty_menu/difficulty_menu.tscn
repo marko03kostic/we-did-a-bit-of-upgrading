@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://undd6idwn2hm"]
+[gd_scene load_steps=9 format=3 uid="uid://undd6idwn2hm"]
 
 [ext_resource type="Script" path="res://difficulty_menu/difficulty_menu.gd" id="1_6ct54"]
 [ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_6tpja"]
+[ext_resource type="Texture2D" uid="uid://kgoger23fqrw" path="res://pics/nidza_struje.png" id="3_xwigw"]
+[ext_resource type="Texture2D" uid="uid://dp4tu387yiv0g" path="res://pics/mito_dajic.png" id="4_1ak22"]
+[ext_resource type="Texture2D" uid="uid://boiiud36y7pp2" path="res://pics/korupsone.png" id="5_bdmak"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kjcdt"]
 font_size = 31
@@ -67,7 +70,7 @@ offset_left = -47.0
 offset_right = 47.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Nidza Struja"
+text = "Nidža Struja"
 label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice1"]
@@ -117,7 +120,7 @@ offset_left = -47.0
 offset_right = 47.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Dimitrije Mito Dajic"
+text = "Dimitrije Mito Dajić"
 label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
@@ -136,7 +139,7 @@ grow_vertical = 2
 text = "- Inherited a company
 - Prone to substance abuse
 - Arrested and freed 5 times
-- \"Do you know who am I?\""
+- \"Do you know who I am?\""
 label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
@@ -167,7 +170,7 @@ offset_left = -47.0
 offset_right = 47.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Nebojsa Korup Sone"
+text = "Nebojša Korup Šone"
 label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice3"]
@@ -213,6 +216,21 @@ show_behind_parent = true
 position = Vector2(577, 326)
 scale = Vector2(0.598958, 0.607407)
 texture = ExtResource("2_6tpja")
+
+[node name="NidzaStruje" type="Sprite2D" parent="."]
+position = Vector2(315, 194)
+scale = Vector2(0.198582, 0.206422)
+texture = ExtResource("3_xwigw")
+
+[node name="MitoDajic" type="Sprite2D" parent="."]
+position = Vector2(588, 193)
+scale = Vector2(0.120621, 0.111026)
+texture = ExtResource("4_1ak22")
+
+[node name="Korupsone" type="Sprite2D" parent="."]
+position = Vector2(855, 193)
+scale = Vector2(0.223837, 0.237269)
+texture = ExtResource("5_bdmak")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice1" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Choice2" to="." method="_on_choice_2_pressed"]
