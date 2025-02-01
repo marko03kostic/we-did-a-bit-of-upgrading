@@ -9,6 +9,8 @@ const inspection_penalty = 10000
 const inspection_bribery = 5000
 const bribery_loss = 20000
 
+var zoom_allowed : bool = true
+
 @onready var earthquake_timer = Timer.new() 
 @onready var inspection_timer = Timer.new() 
 signal no_more_money
@@ -35,9 +37,9 @@ func _ready() -> void:
 	MainGui.visible = false;
 	blocks[0] = BlockResource.new(NADOG_1, 0, 20000)
 	blocks[1] = BlockResource.new(CONTAINER, 1, 40000)
-	blocks[2] = BlockResource.new(NADOG_2, 2, 60000)
+	blocks[2] = BlockResource.new(NADOG_4, 2, 50000)
 	blocks[3] = BlockResource.new(NADOG_3, 3, 30000)
-	blocks[4] = BlockResource.new(NADOG_4, 4, 50000)
+	blocks[4] = BlockResource.new(NADOG_2, 4, 60000)
 	
 	add_child(earthquake_timer)
 	earthquake_timer.one_shot = false
