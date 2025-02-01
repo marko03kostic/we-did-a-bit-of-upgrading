@@ -1,19 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://undd6idwn2hm"]
+[gd_scene load_steps=6 format=3 uid="uid://undd6idwn2hm"]
 
 [ext_resource type="Script" path="res://difficulty_menu/difficulty_menu.gd" id="1_6ct54"]
 [ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_6tpja"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kjcdt"]
 font_size = 31
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqogo"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_t5k44"]
 font_size = 26
-
-[sub_resource type="LabelSettings" id="LabelSettings_82t6q"]
-font_size = 26
-
-[sub_resource type="LabelSettings" id="LabelSettings_j03bp"]
-font_size = 26
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -66,6 +68,7 @@ offset_right = 47.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Nidza Struja"
+label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice1"]
 layout_mode = 1
@@ -84,6 +87,7 @@ text = "- Part of a violent gang
 - Carries a bat in his Audi
 - Likes street fights
 - Hasn't finished high school"
+label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice1"]
 layout_mode = 1
@@ -114,6 +118,7 @@ offset_right = 47.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Dimitrije Mito Dajic"
+label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
 layout_mode = 1
@@ -132,6 +137,7 @@ text = "- Inherited a company
 - Prone to substance abuse
 - Arrested and freed 5 times
 - \"Do you know who am I?\""
+label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice2"]
 layout_mode = 1
@@ -146,7 +152,7 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "500 000 €"
-label_settings = SubResource("LabelSettings_82t6q")
+label_settings = SubResource("LabelSettings_t5k44")
 
 [node name="Choice3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -162,6 +168,7 @@ offset_right = 47.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Nebojsa Korup Sone"
+label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice3"]
 layout_mode = 1
@@ -180,6 +187,7 @@ text = "- Nobody knows what he does
 - Drives a black limo
 - Has high cholesterol
 - A chain smoker"
+label_settings = SubResource("LabelSettings_dqogo")
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Choice3"]
 layout_mode = 1
@@ -194,7 +202,7 @@ offset_right = 36.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "1 300 000 €"
-label_settings = SubResource("LabelSettings_j03bp")
+label_settings = SubResource("LabelSettings_t5k44")
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

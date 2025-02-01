@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq3us4l0f3itr"]
+[gd_scene load_steps=5 format=3 uid="uid://cq3us4l0f3itr"]
 
 [ext_resource type="Script" path="res://main_gui/main_gui.gd" id="1_fegp4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_avhhp"]
+font_size = 40
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2c5mg"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogkaj"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainGUI" type="Control" groups=["MainGUI"]]
 layout_mode = 3
@@ -36,14 +49,15 @@ mouse_filter = 0
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="MoneyLabel" type="RichTextLabel" parent="."]
+[node name="MoneyLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 496.0
 offset_bottom = 97.0
-theme_override_font_sizes/normal_font_size = 35
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Money: "
+label_settings = SubResource("LabelSettings_avhhp")
 
 [node name="InspectionDialog1" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
@@ -62,6 +76,7 @@ offset_left = 200.0
 offset_top = 60.0
 offset_right = 363.0
 offset_bottom = 116.0
+label_settings = SubResource("LabelSettings_2c5mg")
 
 [node name="RemovedMoney" type="Label" parent="."]
 layout_mode = 0
@@ -69,6 +84,7 @@ offset_left = 200.0
 offset_top = 60.0
 offset_right = 363.0
 offset_bottom = 116.0
+label_settings = SubResource("LabelSettings_ogkaj")
 
 [node name="BribeSuccessDialog" type="AcceptDialog" parent="."]
 auto_translate_mode = 1

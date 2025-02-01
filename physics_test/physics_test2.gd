@@ -41,6 +41,7 @@ func block_changed (scene: PackedScene):
 func _input(event: InputEvent) -> void:
 	if(Globals.money < Globals.get_selected_block().price):
 		return
+		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
@@ -58,8 +59,10 @@ func _input(event: InputEvent) -> void:
 				is_mouse_button_down = false
 				#print("Mouse button released")
 				if ray_cast_check():
-					if "freeze" in block_instance:
-						block_instance.freeze = false
+					if block_instance:
+						if "freeze" in block_instance:
+							block_instance.freeze = false
+							block_instance = null
 				
 	
 	# Handle mouse motion events (dragging)
@@ -89,9 +92,10 @@ func cast_ray_from_camera_to_mouse() -> void:
 	var result = space_state.intersect_ray(params)
 	# Check if the ray hit something
 	if result:
-		block_instance.position.x = result.position.x
-		block_instance.position.z = result.position.z
-		block_instance.position.y = placement_collision.position.y
+		if block_instance:
+			block_instance.position.x = result.position.x
+			block_instance.position.z = result.position.z
+			block_instance.position.y = placement_collision.position.y
 	else:
 		print("Ray did not hit anything.")
 
