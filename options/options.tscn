@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drqfd0jjd0mgg"]
+[gd_scene load_steps=3 format=3 uid="uid://drqfd0jjd0mgg"]
 
 [ext_resource type="Script" path="res://options/options.gd" id="1_hp3g8"]
+[ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_ib7uj"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -10,6 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hp3g8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(577, 326)
+scale = Vector2(0.598958, 0.607407)
+texture = ExtResource("2_ib7uj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -36,6 +43,9 @@ text = "Master volume"
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+min_value = -50.0
+max_value = 0.0
+value = -25.0
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
