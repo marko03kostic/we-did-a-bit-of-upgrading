@@ -1289,7 +1289,8 @@ offset_top = 9.0
 offset_right = 1142.0
 offset_bottom = 153.0
 text = "Instructions:
-to move the camera hold the right mouse button
+to move the camera hold the right mouse button and move
+to go up or down use space and ctrl
 left click on the bar to pick your building block
 then click and drag on the blue plane to move the block
 and release to release the block

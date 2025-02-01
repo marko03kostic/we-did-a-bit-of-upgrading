@@ -34,10 +34,10 @@ func _ready() -> void:
 	blocks.resize(5)
 	MainGui.visible = false;
 	blocks[0] = BlockResource.new(NADOG_1, 0, 20000)
-	blocks[1] = BlockResource.new(CONTAINER, 1, 12000)
-	blocks[2] = BlockResource.new(NADOG_2, 2, 9000)
-	blocks[3] = BlockResource.new(NADOG_3, 3, 13000)
-	blocks[4] = BlockResource.new(NADOG_4, 4, 13000)
+	blocks[1] = BlockResource.new(CONTAINER, 1, 40000)
+	blocks[2] = BlockResource.new(NADOG_2, 2, 60000)
+	blocks[3] = BlockResource.new(NADOG_3, 3, 30000)
+	blocks[4] = BlockResource.new(NADOG_4, 4, 50000)
 	
 	add_child(earthquake_timer)
 	earthquake_timer.one_shot = false
@@ -96,14 +96,11 @@ func bribe_declined():
 	reduce_money(inspection_penalty)
 
 func win():
-	#print("you win this level")
 	get_tree().call_deferred("change_scene_to_file", "res://game_finished/game_finished.tscn")
 func lose():
-	#print("you lose this level")
 	get_tree().call_deferred("change_scene_to_file", "res://game_finished/game_finished.tscn")
 
 func change_audio_level(volume):
-	#audio_instance.volume_db = volume
 	GlobalAudioStreamPlayer.volume_db = volume
 
 func _input(event: InputEvent) -> void:

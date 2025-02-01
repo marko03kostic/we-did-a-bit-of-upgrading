@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq2a2mtj13jbm"]
+[gd_scene load_steps=4 format=3 uid="uid://dwjnt1045ka11"]
 
 [ext_resource type="PackedScene" uid="uid://cbxulpoqkn4r6" path="res://art/nadog_1.gltf" id="1_4x8x7"]
 [ext_resource type="Script" path="res://block_viewport_render.gd" id="1_6mbja"]

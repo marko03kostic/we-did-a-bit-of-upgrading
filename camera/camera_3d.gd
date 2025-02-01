@@ -32,11 +32,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("camera_down"):
+	if Input.is_action_pressed("camera_down") and position.y >= height_limit:
 		position.y -= height_tick * delta
-		position.y = clamp(position.y, initial_y_pivot, height_limit)
+		#position.y = clamp(position.y, initial_y_pivot, height_limit)
+		
+		print("down")
 	if Input.is_action_pressed("camera_up"):
 		position.y += height_tick * delta;
-		position.y = clamp(position.y, initial_y_pivot, height_limit)
+		#position.y = clamp(position.y, initial_y_pivot, height_limit)
+		print("up")
 	
 	

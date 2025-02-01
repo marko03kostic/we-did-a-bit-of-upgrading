@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy5x6psuecjqc"]
+[gd_scene load_steps=3 format=3 uid="uid://cy5x6psuecjqc"]
 
 [ext_resource type="Script" path="res://main_gui/block_button.gd" id="1_vqd67"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qq5pn"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="BlockButton" type="Button"]
 custom_minimum_size = Vector2(150, 150)
@@ -8,7 +12,7 @@ offset_right = 184.0
 offset_bottom = 220.0
 script = ExtResource("1_vqd67")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -18,9 +22,7 @@ offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Price: "
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+label_settings = SubResource("LabelSettings_qq5pn")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
