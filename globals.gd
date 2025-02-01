@@ -99,7 +99,7 @@ func bribe_declined():
 	reduce_money(inspection_penalty)
 
 func win():
-	get_tree().call_deferred("change_scene_to_file", "res://game_finished/game_finished.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://game_finished/game_finished2.tscn")
 func lose():
 	get_tree().call_deferred("change_scene_to_file", "res://game_finished/game_finished.tscn")
 
