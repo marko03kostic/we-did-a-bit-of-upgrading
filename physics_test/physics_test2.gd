@@ -58,11 +58,11 @@ func _input(event: InputEvent) -> void:
 				# Mouse button is released, unset the flag
 				is_mouse_button_down = false
 				#print("Mouse button released")
-				if ray_cast_check():
-					if block_instance:
-						if "freeze" in block_instance:
-							block_instance.freeze = false
-							block_instance = null
+				#if ray_cast_check():
+				if block_instance:
+					if "freeze" in block_instance:
+						block_instance.freeze = false
+						block_instance = null
 				
 	
 	# Handle mouse motion events (dragging)
@@ -144,4 +144,5 @@ func get_input_for_rotating():
 		block_instance.rotation.y -= rot_speed
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	await get_tree().create_timer(3.0).timeout
 	Globals.lose()

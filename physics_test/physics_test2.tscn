@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://corxpp8ns6uci"]
+[gd_scene load_steps=72 format=4 uid="uid://corxpp8ns6uci"]
 
 [ext_resource type="Script" path="res://physics_test/physics_test2.gd" id="1_3tw44"]
 [ext_resource type="PackedScene" uid="uid://cxl4y1d4ecvfg" path="res://camera/camera.tscn" id="2_6fdts"]
@@ -61,7 +61,7 @@ size = Vector3(15, 1, 15)
 size = Vector3(15, 1, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1v0uj"]
-size = Vector3(50, 1, 50)
+size = Vector3(200, 1, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1o40"]
 resource_name = "Faccade 1"
@@ -1114,6 +1114,9 @@ font_size = 10
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6jnh"]
+size = Vector3(200, 1, 200)
+
 [node name="physics_test" type="Node3D"]
 script = ExtResource("1_3tw44")
 placement_height = 5.0
@@ -1300,6 +1303,11 @@ and the building doesn't colapse
 for 10 seconds you win!"
 label_settings = SubResource("LabelSettings_fdwvo")
 horizontal_alignment = 1
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("BoxShape3D_g6jnh")
 
 [connection signal="area_entered" from="finish_area" to="." method="_on_finish_area_area_entered"]
 [connection signal="body_entered" from="finish_area" to="." method="_on_finish_area_body_entered"]
