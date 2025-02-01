@@ -5,6 +5,7 @@ signal block_selected(blockId: int)
 const BLOCK_VIEWPORT_RENDER = preload("res://block_viewport_render.tscn")
 var vtp
 var id
+
 func setPrice(price: int):
 	if($RichTextLabel  != null):
 		$RichTextLabel.text = "Price: %s" % [str(price)]
@@ -14,7 +15,7 @@ func setImage(blockScene: PackedScene):
 	vtp = BLOCK_VIEWPORT_RENDER.instantiate()
 	vtp.rendered_node = blockScene
 	add_child(vtp)
-	print_debug(vtp.viewPort.get_viewport())
+	#print_debug(vtp.viewPort.get_viewport())
 	(vtp.viewPort.get_viewport() as SubViewport).ready.connect(continue_set_image)
 
 func continue_set_image():
@@ -32,4 +33,9 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	#Globals.blockSelected(id)
+	pass
+
+
+func _on_button_up() -> void:
 	Globals.blockSelected(id)

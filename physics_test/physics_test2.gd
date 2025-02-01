@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		get_input_for_rotating()
 	
 func block_changed (scene: PackedScene):
-	print_debug("changed")
+	#print_debug("changed")
 	block = scene
 func _input(event: InputEvent) -> void:
 	if(Globals.money < Globals.get_selected_block().price):

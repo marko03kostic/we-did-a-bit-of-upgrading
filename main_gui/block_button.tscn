@@ -28,4 +28,5 @@ layout_mode = 1
 expand_mode = 5
 stretch_mode = 2
 
+[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

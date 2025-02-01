@@ -33,7 +33,7 @@ size = Vector3(50, 0.05, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnoij"]
 transparency = 1
-albedo_color = Color(0, 1, 1, 0.113725)
+albedo_color = Color(0, 0.635294, 0.596078, 0.211765)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drf6c"]
 material = SubResource("StandardMaterial3D_pnoij")
@@ -1150,6 +1150,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="placement_collision" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9982, 0)
 shape = SubResource("BoxShape3D_h5xmh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/placement_collision"]
@@ -1165,6 +1166,7 @@ target_position = Vector3(0, -799, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="finish_line" type="CollisionShape3D" parent="finish_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("BoxShape3D_lw6o6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="finish_area/finish_line"]

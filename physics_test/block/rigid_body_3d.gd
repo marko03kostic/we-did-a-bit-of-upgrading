@@ -16,7 +16,7 @@ func _integrate_forces(state):
 	apply_force(gravity_force, Vector3())
 
 func _process(delta: float) -> void:
-	print(position)
+	#print(position)
 	if check_lose_condition():
 		Globals.lose()
 

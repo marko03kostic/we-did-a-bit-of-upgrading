@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c62lo1sk5tm6s"]
+[gd_scene load_steps=7 format=3 uid="uid://c62lo1sk5tm6s"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_hifv4"]
 [ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_5hst3"]
+
+[sub_resource type="Theme" id="Theme_gj4l2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_13hfm"]
 font_size = 50
@@ -51,6 +53,8 @@ alignment = 1
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_gj4l2")
+theme_override_font_sizes/font_size = 50
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]

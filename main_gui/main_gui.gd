@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func money_updated(money: int):
-	print_debug("money")
+	#print_debug("money")
 	if (money > int($MoneyLabel.text)):
 		set_money_added(money - int($MoneyLabel.text))
 	elif (money < int($MoneyLabel.text)):
