@@ -105,3 +105,7 @@ func lose():
 func change_audio_level(volume):
 	#audio_instance.volume_db = volume
 	GlobalAudioStreamPlayer.volume_db = volume
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("quit"):
+		get_tree().quit()
