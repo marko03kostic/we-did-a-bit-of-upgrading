@@ -21,17 +21,21 @@ const NADOG_1 = preload("res://blocks/nadog_1.tscn")
 const HOUSE_L = preload("res://art/house_L.gltf")
 const NADOG_2 = preload("res://blocks/nadog_2.tscn")
 const CONTAINER = preload("res://blocks/container.tscn")
+const NADOG_3 = preload("res://blocks/nadog_3.tscn")
+const NADOG_4 = preload("res://blocks/nadog_4.tscn")
 var blocks: Array[BlockResource] = []
 
 var selectedBlock = 0
 
 func _ready() -> void:
-	blocks.resize(4)
+	blocks.resize(5)
 	MainGui.visible = false;
 	blocks[0] = BlockResource.new(NADOG_1, 0, 20000)
 	blocks[1] = BlockResource.new(CONTAINER, 1, 12000)
 	blocks[2] = BlockResource.new(NADOG_2, 2, 9000)
-	blocks[3] = BlockResource.new(NADOG_2, 3, 13000)
+	blocks[3] = BlockResource.new(NADOG_3, 3, 13000)
+	blocks[4] = BlockResource.new(NADOG_4, 4, 13000)
+		
 	
 	add_child(earthquake_timer)
 	earthquake_timer.one_shot = false
