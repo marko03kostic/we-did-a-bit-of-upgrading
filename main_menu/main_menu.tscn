@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c62lo1sk5tm6s"]
+[gd_scene load_steps=6 format=3 uid="uid://c62lo1sk5tm6s"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_hifv4"]
 [ext_resource type="Texture2D" uid="uid://c38rcgf27vps6" path="res://main_menu/main_menu.jpg" id="2_5hst3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_13hfm"]
 font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbu7t"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cd6b3"]
+font_size = 20
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -43,11 +53,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Play"
 
-[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Tutorial
-"
-
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
@@ -55,52 +60,6 @@ text = "Options"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -565.0
-offset_right = 574.0
-offset_bottom = 185.0
-grow_horizontal = 2
-
-[node name="Label7" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Global Game Jam 2025"
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Made by"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "nothke"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "crknuchu"
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "marko03kostic"
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "NikolaTufegdzic"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "txrpe"
-horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -110,16 +69,41 @@ texture = ExtResource("2_5hst3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 265.0
-offset_top = 148.0
-offset_right = 894.0
-offset_bottom = 247.0
+offset_left = 268.0
+offset_top = 90.0
+offset_right = 897.0
+offset_bottom = 189.0
 text = "MALO SMO NADOGRADILI"
 label_settings = SubResource("LabelSettings_13hfm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 426.0
+offset_right = 238.0
+offset_bottom = 640.0
+text = "Global Game Jam 2025
+Made by:
+	nothke
+	crknuchu
+	marko03kostic
+	NikolaTufegdzic
+	txrpe"
+label_settings = SubResource("LabelSettings_pbu7t")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 175.0
+offset_right = 704.0
+offset_bottom = 203.0
+text = "- we did a little upgrading -"
+label_settings = SubResource("LabelSettings_cd6b3")
+horizontal_alignment = 1
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
